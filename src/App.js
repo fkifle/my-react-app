@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         <ErrorBoundary>
-          <MyWidget/>
+          <MyWidget throwError="true"/>
         </ErrorBoundary>
       </div>
     );

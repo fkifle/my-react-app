@@ -5,27 +5,6 @@ export default class ErrorBoundary extends Component {
       super(props);
       this.state = { error: null, errorInfo: null };
     }
-
-    logErrorToMyService = (error, info) => {
-        const fetchParams = {  
-            method: 'POST',
-            headers: {'content-type': 'application/json'},
-            body: JSON.stringify({ 
-                "version": "1.1", "host": "frezererror.org", "short_message": "error4",
-                "level": 6, "_some_info": "info4" }),
-        };
-            
-        const url = "http://192.168.1.176:12201/gelf";
-        fetch(url, fetchParams)  
-        .then(res => {
-            if (!res.ok) {
-                alert("!res.ok")
-                throw new TypeError(res.statusText);
-            }
-        });
-        // Display fallback UI
-        this.setState({ hasError: true });
-    }
     
     componentDidCatch(error, errorInfo) {
       // Catch errors in any components below and re-render with error message

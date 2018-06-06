@@ -5,6 +5,8 @@ import './App.css';
 export default class MyWidget extends Component {
 
   render() {
+    if (this.props.throwError)
+      throw new Error("In MyWidget, Oh No!");
     return (
       <div className="App">
         <header className="App-header">
